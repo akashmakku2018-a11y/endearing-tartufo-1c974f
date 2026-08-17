@@ -64,3 +64,97 @@ function sendWhatsApp(){
 </script>
 </body>
 </html>
+<script>
+function data() {
+  return {
+    name: document.getElementById('name').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    country: document.getElementById('country').value,
+    address: document.getElementById('address').value.trim(),
+    payment: document.getElementById('payment').value
+  };
+}
+
+document.getElementById('orderForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const d = data();
+  const notice = document.getElementById('notice');
+
+  if (!d.name || !d.phone || !d.address) {
+    alert('Please complete your name, WhatsApp number and delivery address.');
+    return;
+  }
+
+  const order = {
+    name: d.name,
+    phone: d.phone,
+    email: d.email,
+    country: d.country,
+    address: d.address,
+    payment: d.payment,
+    items: [
+      { name: 'Fame Elixir', price: 999, quantity: 1 },
+      { name: 'Thrill Elixir', price: 999, quantity: 1 },
+      { name: 'Escape Elixir', price: 999, quantity: 1 }
+    ],
+    total: 2997,
+    status: 'pending'
+  };
+
+  try {
+    const { data: savedOrder, error } = await supabaseClient
+      .from('orders')
+      .insert([order])
+      .select()
+      .single();
+
+    if (error) {
+      console.error(error);
+      notice.style.display = 'block';
+      notice.textContent = 'Order could not be placed. Please try again.';
+      return;
+    }
+
+    notice.style.display = 'block';
+    notice.textContent =
+      'Order placed successfully! Your Order ID is #' + savedOrder.id;
+
+    document.getElementById('orderForm').reset();
+
+  } catch (error) {
+    console.error(error);
+    notice.style.display = 'block';
+    notice.textContent = 'Something went wrong. Please try again.';
+  }
+});
+
+function sendWhatsApp() {
+  const d = data();
+
+  if (!d.name || !d.phone || !d.address) {
+    alert('Please complete your name, WhatsApp number and delivery address.');
+    return;
+  }
+
+  const msg =
+    'NIVAAH ELIXIR ORDER\n\n' +
+    'Name: ' + d.name + '\n' +
+    'WhatsApp: ' + d.phone + '\n' +
+    'Email: ' + d.email + '\n' +
+    'Country: ' + d.country + '\n' +
+    'Address: ' + d.address + '\n' +
+    'Payment: ' + d.payment + '\n\n' +
+    'Fame Elixir — ₹999\n' +
+    'Thrill Elixir — ₹999\n' +
+    'Escape Elixir — ₹999\n' +
+    'Total — ₹2,997';
+
+  window.open(
+    'https://wa.me/966500000000?text=' +
+    encodeURIComponent(msg),
+    '_blank'
+  );
+}
+</script>
