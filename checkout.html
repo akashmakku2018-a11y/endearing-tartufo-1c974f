@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -22,7 +23,9 @@
 --line:#292723
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box
+}
 
 body{
 margin:0;
@@ -41,7 +44,8 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 5vw;
-border-bottom:1px solid var(--line)
+border-bottom:1px solid var(--line);
+background:#070707
 }
 
 .logo{
@@ -163,6 +167,11 @@ text-transform:uppercase;
 cursor:pointer
 }
 
+.btn:disabled{
+opacity:.6;
+cursor:not-allowed
+}
+
 .whatsapp{
 background:#161610;
 color:#e5d5ae;
@@ -177,6 +186,16 @@ border:1px solid #4b432f;
 color:#d8c99f;
 font-size:12px;
 line-height:1.7
+}
+
+.success{
+border-color:#4b6b43;
+color:#b9dcae
+}
+
+.error{
+border-color:#733d3d;
+color:#e6a8a8
 }
 
 .footer{
@@ -210,71 +229,169 @@ padding:50px 18px
 <body>
 
 <nav class="nav">
-<a class="logo" href="index.html">NIVAAH</a>
-<a class="back" href="cart.html">← Selection</a>
+
+<a class="logo" href="index.html">
+NIVAAH
+</a>
+
+<a class="back" href="cart.html">
+← Selection
+</a>
+
 </nav>
+
 
 <main class="wrap">
 
 <header class="head">
-<div class="eyebrow">Private Order</div>
-<h1>Complete Your Selection</h1>
-<p>Your details are used only to prepare your fragrance order.</p>
+
+<div class="eyebrow">
+Private Order
+</div>
+
+<h1>
+Complete Your Selection
+</h1>
+
+<p>
+Your details are used only to prepare your fragrance order.
+</p>
+
 </header>
+
 
 <div class="grid">
 
+
+<!-- CUSTOMER DETAILS -->
+
 <section class="panel">
 
-<h2>Customer Details</h2>
+<h2>
+Customer Details
+</h2>
 
 <form id="orderForm">
 
-<div class="field">
-<label>Full Name</label>
-<input id="name" required placeholder="Your name">
-</div>
 
 <div class="field">
-<label>Mobile / WhatsApp</label>
-<input id="phone" required type="tel" placeholder="+966 ...">
+
+<label>
+Full Name
+</label>
+
+<input
+id="name"
+required
+placeholder="Your name">
+
 </div>
 
-<div class="field">
-<label>Email</label>
-<input id="email" type="email" placeholder="you@example.com">
-</div>
 
 <div class="field">
-<label>Country</label>
+
+<label>
+Mobile / WhatsApp
+</label>
+
+<input
+id="phone"
+required
+type="tel"
+placeholder="+966 ...">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Email
+</label>
+
+<input
+id="email"
+type="email"
+placeholder="you@example.com">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Country
+</label>
+
 <select id="country">
-<option selected>India</option>
-<option>Saudi Arabia</option>
-<option>United Arab Emirates</option>
-<option>Qatar</option>
-<option>Kuwait</option>
-<option>Other</option>
+
+<option selected>
+India
+</option>
+
+<option>
+Saudi Arabia
+</option>
+
+<option>
+United Arab Emirates
+</option>
+
+<option>
+Qatar
+</option>
+
+<option>
+Kuwait
+</option>
+
+<option>
+Other
+</option>
+
 </select>
+
 </div>
 
+
 <div class="field">
-<label>Delivery Address</label>
+
+<label>
+Delivery Address
+</label>
+
 <textarea
 id="address"
 required
 placeholder="Building, street, city, country"></textarea>
+
 </div>
 
+
 <div class="field">
-<label>Preferred Payment</label>
+
+<label>
+Preferred Payment
+</label>
 
 <select id="payment">
-<option>Cash on Delivery</option>
-<option>Bank Transfer</option>
-<option>Online Payment — coming soon</option>
+
+<option>
+Cash on Delivery
+</option>
+
+<option>
+Bank Transfer
+</option>
+
+<option>
+Online Payment — coming soon
+</option>
+
 </select>
 
 </div>
+
 
 <button
 class="btn"
@@ -285,6 +402,7 @@ CREATE ORDER REQUEST
 
 </button>
 
+
 <button
 class="btn whatsapp"
 type="button"
@@ -294,46 +412,100 @@ SEND VIA WHATSAPP
 
 </button>
 
-<div id="notice" class="notice"></div>
+
+<div
+id="notice"
+class="notice">
+</div>
+
 
 </form>
 
 </section>
 
 
+<!-- ORDER SUMMARY -->
+
 <aside class="panel summary">
 
-<div class="eyebrow">Order Summary</div>
-
-<h2>NIVAAH Collection</h2>
-
-<div class="line">
-<span>Fame Elixir</span>
-<span>₹999</span>
+<div class="eyebrow">
+Order Summary
 </div>
 
-<div class="line">
-<span>Thrill Elixir</span>
-<span>₹999</span>
-</div>
+<h2>
+NIVAAH Collection
+</h2>
+
 
 <div class="line">
-<span>Escape Elixir</span>
-<span>₹999</span>
+
+<span>
+Fame Elixir
+</span>
+
+<span>
+₹999
+</span>
+
 </div>
 
+
 <div class="line">
-<span>Delivery</span>
-<span>Free</span>
+
+<span>
+Thrill Elixir
+</span>
+
+<span>
+₹999
+</span>
+
 </div>
+
+
+<div class="line">
+
+<span>
+Escape Elixir
+</span>
+
+<span>
+₹999
+</span>
+
+</div>
+
+
+<div class="line">
+
+<span>
+Delivery
+</span>
+
+<span>
+Free
+</span>
+
+</div>
+
 
 <div class="line total">
-<span>Total</span>
-<span>₹2,997</span>
+
+<span>
+Total
+</span>
+
+<span>
+₹2,997
+</span>
+
 </div>
 
+
 <p style="color:#777;font-size:10px;line-height:1.7">
-Online card payment can be connected later through your preferred payment gateway.
+
+Your order will be securely recorded in the NIVAAH order system.
+
 </p>
 
 </aside>
@@ -342,84 +514,167 @@ Online card payment can be connected later through your preferred payment gatewa
 
 </main>
 
+
 <footer class="footer">
+
 NIVAAH ELIXIR · THE ART OF FRAGRANCE
+
 </footer>
 
 
 <script>
 
-function data(){
+/* ==========================================
+   PRODUCT / ORDER VALUES
+========================================== */
+
+const SUBTOTAL = 2997;
+const SHIPPING_FEE = 0;
+const DISCOUNT = 0;
+const TOTAL = 2997;
+
+
+/* ==========================================
+   GET FORM DATA
+========================================== */
+
+function getCustomerData(){
 
 return {
 
-name:document.getElementById('name').value.trim(),
+name:
+document.getElementById('name').value.trim(),
 
-phone:document.getElementById('phone').value.trim(),
+phone:
+document.getElementById('phone').value.trim(),
 
-email:document.getElementById('email').value.trim(),
+email:
+document.getElementById('email').value.trim(),
 
-country:document.getElementById('country').value,
+country:
+document.getElementById('country').value,
 
-address:document.getElementById('address').value.trim(),
+address:
+document.getElementById('address').value.trim(),
 
-payment:document.getElementById('payment').value
+payment:
+document.getElementById('payment').value
 
 };
 
 }
 
 
-/* ==============================
-   SAVE ORDER TO SUPABASE
-================================ */
+/* ==========================================
+   GENERATE ORDER NUMBER
+========================================== */
 
-document.getElementById('orderForm').addEventListener(
-'submit',
-async function(e){
+function generateOrderNumber(){
+
+const now = new Date();
+
+const date =
+now.getFullYear().toString() +
+String(now.getMonth()+1).padStart(2,'0') +
+String(now.getDate()).padStart(2,'0');
+
+const random =
+Math.floor(1000 + Math.random() * 9000);
+
+return 'NIVAAH-' + date + '-' + random;
+
+}
+
+
+/* ==========================================
+   CREATE ORDER
+========================================== */
+
+document
+.getElementById('orderForm')
+.addEventListener('submit', async function(e){
 
 e.preventDefault();
 
-const d=data();
 
-const button=document.getElementById('orderButton');
+const d = getCustomerData();
 
-const notice=document.getElementById('notice');
+const button =
+document.getElementById('orderButton');
 
-button.disabled=true;
+const notice =
+document.getElementById('notice');
 
-button.textContent='SAVING ORDER...';
 
-notice.style.display='none';
+button.disabled = true;
+
+button.textContent =
+'SAVING ORDER...';
+
+notice.style.display = 'none';
+
+notice.className = 'notice';
+
+
+/* ==========================================
+   SHIPPING ADDRESS JSON
+========================================== */
+
+const shippingAddress = {
+
+name: d.name,
+
+phone: d.phone,
+
+email: d.email,
+
+country: d.country,
+
+address: d.address
+
+};
+
+
+/* ==========================================
+   ORDER NUMBER
+========================================== */
+
+const orderNumber =
+generateOrderNumber();
 
 
 try{
 
-const { data:order, error } = await supabaseClient
+
+/* ==========================================
+   INSERT INTO SUPABASE
+========================================== */
+
+const { data, error } =
+
+await supabaseClient
 
 .from('orders')
 
 .insert([{
 
-customer_name:d.name,
+order_number: orderNumber,
 
-phone:d.phone,
+status: 'pending',
 
-email:d.email,
+payment_status: 'pending',
 
-country:d.country,
+payment_method: d.payment,
 
-address:d.address,
+subtotal: SUBTOTAL,
 
-payment_method:d.payment,
+shipping_fee: SHIPPING_FEE,
 
-product_name:'NIVAAH Collection',
+discount: DISCOUNT,
 
-items:'Fame Elixir, Thrill Elixir, Escape Elixir',
+total: TOTAL,
 
-total:2997,
-
-status:'pending'
+shipping_address: shippingAddress
 
 }])
 
@@ -428,86 +683,103 @@ status:'pending'
 
 if(error){
 
-console.error(error);
+console.error(
+'Supabase error:',
+error
+);
 
 throw error;
 
 }
 
 
-/* SUCCESS */
+/* ==========================================
+   SUCCESS
+========================================== */
 
-notice.style.display='block';
+notice.className =
+'notice success';
 
-notice.innerHTML=
-'✓ <strong>Order request created successfully.</strong><br><br>'+
-'Thank you, '+d.name+'. Your NIVAAH order has been received.';
+notice.style.display =
+'block';
+
+notice.innerHTML =
+
+'✓ <strong>Order created successfully.</strong>' +
+
+'<br><br>' +
+
+'Order Number: <strong>' +
+orderNumber +
+'</strong>' +
+
+'<br><br>' +
+
+'Thank you, ' +
+d.name +
+'. Your NIVAAH order has been received.';
 
 
-button.textContent='ORDER CREATED ✓';
+button.textContent =
+'ORDER CREATED ✓';
 
-button.disabled=true;
+button.disabled = true;
 
 
-/* Optional email notification */
+/* ==========================================
+   SAVE ORDER NUMBER LOCALLY
+========================================== */
 
-const subject=encodeURIComponent(
-'NIVAAH ELIXIR Order - '+d.name
+localStorage.setItem(
+'nivaah_last_order',
+orderNumber
 );
 
-const body=encodeURIComponent(
-
-'NIVAAH ELIXIR ORDER\n\n'+
-
-'Customer: '+d.name+'\n'+
-'WhatsApp: '+d.phone+'\n'+
-'Email: '+d.email+'\n'+
-'Country: '+d.country+'\n'+
-'Address: '+d.address+'\n'+
-'Payment: '+d.payment+'\n\n'+
-
-'Fame Elixir — ₹999\n'+
-'Thrill Elixir — ₹999\n'+
-'Escape Elixir — ₹999\n'+
-'Delivery — Free\n'+
-'Total — ₹2,997'
-
-);
-
-
-/*
-Email is NOT opened automatically.
-Order is already saved in Supabase.
-*/
 
 }catch(error){
 
-console.error('Supabase order error:',error);
 
-notice.style.display='block';
+notice.className =
+'notice error';
 
-notice.innerHTML=
-'✕ <strong>Order could not be saved.</strong><br><br>'+
-'Please check your internet connection or try again.';
+notice.style.display =
+'block';
 
-button.disabled=false;
+notice.innerHTML =
 
-button.textContent='CREATE ORDER REQUEST';
+'✕ <strong>Order could not be created.</strong>' +
+
+'<br><br>' +
+
+'Please check your connection and try again.';
+
+
+button.disabled = false;
+
+button.textContent =
+'CREATE ORDER REQUEST';
+
 
 }
 
 });
 
 
-/* ==============================
-   WHATSAPP
-================================ */
+/* ==========================================
+   WHATSAPP ORDER
+========================================== */
 
 function sendWhatsApp(){
 
-const d=data();
+const d =
+getCustomerData();
 
-if(!d.name || !d.phone || !d.address){
+
+if(
+!d.name ||
+!d.phone ||
+!d.address
+){
 
 alert(
 'Please complete your name, WhatsApp number and delivery address.'
@@ -518,33 +790,65 @@ return;
 }
 
 
-const message=
+const message =
 
-'NIVAAH ELIXIR ORDER\n\n'+
+'NIVAAH ELIXIR ORDER\n\n' +
 
-'Name: '+d.name+'\n'+
-'WhatsApp: '+d.phone+'\n'+
-'Email: '+d.email+'\n'+
-'Country: '+d.country+'\n'+
-'Address: '+d.address+'\n'+
-'Payment: '+d.payment+'\n\n'+
+'Name: ' +
+d.name +
 
-'Fame Elixir — ₹999\n'+
-'Thrill Elixir — ₹999\n'+
-'Escape Elixir — ₹999\n'+
-'Delivery — Free\n'+
+'\nWhatsApp: ' +
+d.phone +
+
+'\nEmail: ' +
+d.email +
+
+'\nCountry: ' +
+d.country +
+
+'\nAddress: ' +
+d.address +
+
+'\nPayment: ' +
+d.payment +
+
+'\n\n' +
+
+'Fame Elixir — ₹999\n' +
+
+'Thrill Elixir — ₹999\n' +
+
+'Escape Elixir — ₹999\n' +
+
+'Delivery — Free\n' +
+
 'Total — ₹2,997';
 
 
-const whatsappNumber='966500000000';
+/*
+IMPORTANT:
+Replace this number with
+your real NIVAAH WhatsApp number.
+
+Format:
+country code + number
+WITHOUT +
+WITHOUT spaces
+*/
+
+const whatsappNumber =
+'966500000000';
 
 
 window.open(
-'https://wa.me/'+
-whatsappNumber+
-'?text='+
+
+'https://wa.me/' +
+whatsappNumber +
+'?text=' +
 encodeURIComponent(message),
+
 '_blank'
+
 );
 
 }
@@ -552,4 +856,5 @@ encodeURIComponent(message),
 </script>
 
 </body>
+
 </html>
