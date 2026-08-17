@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808">
+<title>Nivaah Elixir — Elixir of Youth</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--bg:#070707;--panel:#0d0d0c;--ink:#f5f1e9;--muted:#a7a39c;--gold:#c99b4a;--gold2:#e1bd72;--red:#ed1b2f;--line:#282621}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.topbar{height:28px;display:flex;align-items:center;justify-content:center;background:#080808;border-bottom:1px solid #24221f;color:#a9956e;font-size:8px;letter-spacing:.28em;text-transform:uppercase}
+.nav{height:78px;position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:34px;padding:0 4.5vw;background:rgba(7,7,7,.95);border-bottom:1px solid #211f1b;backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:9px;min-width:185px}.brandmark{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#000}.brandtext{font-family:"Cormorant Garamond",serif;font-size:26px;line-height:.75;color:#e0b767}.brandtext small{display:block;font-family:Inter,sans-serif;font-size:6px;letter-spacing:.08em;color:#d2b46f;margin-top:5px}
+.navlinks{display:flex;align-items:center;gap:30px;margin:auto;font-size:9px;letter-spacing:.2em;text-transform:uppercase}.navlinks a{color:#c5c0b8;transition:.2s}.navlinks a:hover,.navlinks a.active{color:var(--gold2)}
+.navicons{display:flex;align-items:center;gap:18px;font-size:17px;color:#d7d1c7}.icon{position:relative;display:grid;place-items:center;width:22px;height:22px}.badge{position:absolute;right:-5px;top:-5px;width:8px;height:8px;border-radius:50%;background:var(--red);border:1px solid #090909}
+.hero{position:relative;background:#000;overflow:hidden}.hero-link{display:block}.hero img{display:block;width:100%;height:auto}.hero-note{position:absolute;left:4%;bottom:4%;font-size:8px;letter-spacing:.22em;color:#c8c1b8;text-transform:uppercase;opacity:.8;pointer-events:none}
+.features{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #292722;border-bottom:1px solid #292722;background:#10100f}.feature{display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 14px;border-right:1px solid #292722}.feature:last-child{border-right:0}.feature-icon{width:26px;height:26px;border:1px solid #806536;border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:12px}.feature strong{display:block;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#d5cec3;font-weight:500}.feature span{display:block;font-size:8px;color:#8f8a82;margin-top:5px}
+.section{padding:54px 5.2vw;border-bottom:1px solid #24231f}.collection-wrap{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:stretch}.section-intro{padding:8px 0}.eyebrow{font-size:8px;letter-spacing:.27em;color:var(--red);text-transform:uppercase;font-weight:600}.section-title{font-family:"Cormorant Garamond",serif;font-size:33px;line-height:1.05;margin:12px 0 25px}.outline-btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #806536;color:#d9bb7b;padding:11px 17px;font-size:8px;letter-spacing:.18em;text-transform:uppercase;transition:.2s}.outline-btn:hover{background:#17120b;border-color:#b8914b}
+.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.collection-card{position:relative;min-height:300px;border:1px solid #302d28;overflow:hidden;background:#0b0b0b}.collection-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}.collection-card:hover img{transform:scale(1.025)}.collection-overlay{position:absolute;inset:auto 0 0;padding:38px 12px 11px;background:linear-gradient(transparent,rgba(0,0,0,.9));text-shadow:0 1px 5px #000}.collection-name{font-family:"Cormorant Garamond",serif;font-size:17px}.collection-desc{font-size:7px;color:#c7c0b5;margin-top:3px}
+.bestsellers{padding-top:48px}.best-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px}.best-head .section-title{margin-bottom:0}.arrows{display:flex;gap:8px}.arrow{width:30px;height:30px;border:1px solid #604f31;background:transparent;color:#d7b46d;cursor:pointer;font-size:16px}.products{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.product-card{border:1px solid #302d28;background:#0b0b0b;overflow:hidden}.product-image{aspect-ratio:1/1.17;overflow:hidden}.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}.product-card:hover img{transform:scale(1.03)}.product-body{padding:10px 10px 11px}.product-name{font-family:"Cormorant Garamond",serif;font-size:15px}.product-meta{font-size:7px;color:#8e8981;margin-top:3px}.product-price{font-size:11px;color:#eee;margin-top:9px}.add{width:100%;margin-top:9px;padding:8px;border:1px solid #6e5936;background:#100f0d;color:#d6b875;font-size:7px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}.add:hover{background:#1b150c}
+.why{background:#111110;padding-top:30px;padding-bottom:30px}.why-grid{display:grid;grid-template-columns:190px repeat(4,1fr);gap:24px;align-items:center}.why-item{text-align:center}.why-icon{color:#c8a45d;font-size:22px;margin-bottom:9px}.why-item strong{display:block;font-size:8px;letter-spacing:.15em;color:#d7d0c6;text-transform:uppercase}.why-item p{font-size:8px;color:#8c8780;line-height:1.5;margin:6px auto 0;max-width:145px}
+.promo{padding:0;background:#000}.promo img{width:100%;display:block;height:auto}.club{padding:24px 5.2vw;background:#111110;border-bottom:1px solid #282621}.club-wrap{display:flex;align-items:center;justify-content:space-between;gap:30px}.club h3{font-family:"Cormorant Garamond",serif;font-size:25px;margin:0 0 3px}.club p{font-size:8px;color:#918c84;margin:0}.subscribe{display:flex;min-width:390px}.subscribe input{flex:1;background:#0b0b0b;border:1px solid #39352e;color:#eee;padding:11px 12px;font-size:9px;outline:none}.subscribe button{width:105px;border:1px solid #705b37;background:#0e0e0d;color:#d9b871;font-size:8px;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}.subscribe button:hover{background:#17130c}
+.footer{background:#090909;padding:36px 5.2vw 12px}.footer-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:35px}.footer-brand p{font-size:8px;color:#8c8881;line-height:1.7;max-width:230px}.footer h4{font-size:8px;letter-spacing:.12em;color:#c7b37e;text-transform:uppercase;margin:0 0 13px}.footer a,.footer li{font-size:8px;color:#8e8981;line-height:2.1}.footer ul{list-style:none;padding:0;margin:0}.social{display:flex;gap:13px;margin-top:12px}.copyright{border-top:1px solid #211f1b;margin-top:28px;padding-top:12px;display:flex;justify-content:space-between;color:#6f6a63;font-size:7px}.legal{display:flex;gap:20px}
+.toast{position:fixed;right:18px;bottom:18px;z-index:100;background:#15120e;border:1px solid #6f5935;color:#e5d3ae;padding:11px 15px;font-size:9px;letter-spacing:.08em;transform:translateY(120px);opacity:0;transition:.25s}.toast.show{transform:translateY(0);opacity:1}
+@media(max-width:980px){.nav{gap:15px}.navlinks{gap:16px}.brand{min-width:150px}.products{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:1fr 1fr}.why-grid>.why-intro{grid-column:1/-1}.footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}.footer-brand{grid-column:1/-1}}
+@media(max-width:700px){.topbar{font-size:7px}.nav{height:64px;padding:0 16px}.brand{min-width:0}.brandmark{width:35px;height:35px}.brandtext{font-size:22px}.navlinks{display:none}.navicons{margin-left:auto;gap:12px}.hero-note{display:none}.features{grid-template-columns:1fr 1fr}.feature{padding:15px 8px;justify-content:flex-start}.feature:nth-child(2){border-right:0}.feature:nth-child(-n+2){border-bottom:1px solid #292722}.collection-wrap{grid-template-columns:1fr;gap:20px}.collection-grid{grid-template-columns:1fr 1fr}.collection-card{min-height:250px}.section{padding:42px 16px}.best-head{align-items:center}.products{grid-template-columns:1fr 1fr}.product-card:nth-child(5){display:none}.why-grid{grid-template-columns:1fr 1fr;gap:20px}.club-wrap{align-items:flex-start;flex-direction:column}.subscribe{width:100%;min-width:0}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-brand{grid-column:1/-1}.copyright{flex-direction:column;gap:8px}.legal{gap:12px}}
+@media(max-width:430px){.collection-grid{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.product-body{padding:9px}.product-name{font-size:14px}.feature strong{font-size:7px}.feature span{font-size:7px}}
+</style>
+</head>
+<body>
+<div class="topbar">FREE SHIPPING ON ORDERS OVER ₹999</div>
+<nav class="nav">
+  <a class="brand" href="index.html" aria-label="Nivaah home"><img class="brandmark" src="assets/nivaah-logo.png" alt="Nivaah logo"><span class="brandtext">Nivaah<small>• elixir of youth •</small></span></a>
+  <div class="navlinks"><a class="active" href="index.html">Home</a><a href="#collection">Collection</a><a href="#story">About Us</a><a href="#why">Our Story</a><a href="#contact">Contact</a></div>
+  <div class="navicons" aria-label="Site tools"><span class="icon" aria-label="Search">⌕</span><a class="icon" href="#contact" aria-label="Account">♙</a><a class="icon" href="cart.html" aria-label="Cart">♧<span class="badge"></span></a></div>
+</nav>
+
+<main>
+  <section class="hero" aria-label="Nivaah Signature Elixir promotion">
+    <a class="hero-link" href="product.html" aria-label="Shop Nivaah signature elixirs"><img src="assets/home-hero.png" alt="Discover your signature Nivaah Elixir — 10 percent off on all 50ml perfumes"></a>
+  </section>
+
+  <section class="features" aria-label="Nivaah benefits">
+    <div class="feature"><div class="feature-icon">✦</div><div><strong>Premium Ingredients</strong><span>Crafted with the finest oils</span></div></div>
+    <div class="feature"><div class="feature-icon">◷</div><div><strong>Long Lasting</strong><span>Over 30% fragrance oils</span></div></div>
+    <div class="feature"><div class="feature-icon">♧</div><div><strong>Made For You</strong><span>For every mood & moment</span></div></div>
+    <div class="feature"><div class="feature-icon">▣</div><div><strong>Safe & Secure</strong><span>Secure payments</span></div></div>
+  </section>
+
+  <section class="section" id="collection">
+    <div class="collection-wrap">
+      <div class="section-intro"><div class="eyebrow">Our Collection</div><h2 class="section-title">Find Your<br>Signature Scent</h2><a class="outline-btn" href="product.html">View All</a></div>
+      <div class="collection-grid">
+        <a class="collection-card" href="product.html#fame"><img src="assets/fame.png" alt="Nivaah Fame Elixir"><div class="collection-overlay"><div class="collection-name">Fame Elixir</div><div class="collection-desc">For the Driven</div></div></a>
+        <a class="collection-card" href="product.html#thrill"><img src="assets/thrill.png" alt="Nivaah Thrill Elixir"><div class="collection-overlay"><div class="collection-name">Thrill Elixir</div><div class="collection-desc">For the Bold</div></div></a>
+        <a class="collection-card" href="product.html#escape"><img src="assets/escape.png" alt="Nivaah Escape Elixir"><div class="collection-overlay"><div class="collection-name">Escape Elixir</div><div class="collection-desc">For the Free Spirit</div></div></a>
+      </div>
+    </div>
+
+    <div class="bestsellers" id="bestsellers">
+      <div class="best-head"><div><div class="eyebrow">Best Sellers</div><h2 class="section-title">Loved. Chosen.<br>Remembered.</h2></div><div class="arrows"><button class="arrow" type="button" aria-label="Previous">←</button><button class="arrow" type="button" aria-label="Next">→</button></div></div>
+      <div class="products">
+        <article class="product-card"><a href="product.html#collector"><div class="product-image"><img src="assets/collector.png" alt="Nivaah Collector's Edition"></div></a><div class="product-body"><div class="product-name">Collector's Edition</div><div class="product-meta">3 × 20ml</div><div class="product-price">₹1,499</div><button class="add" data-product="Collector's Edition">Add to Cart&nbsp;&nbsp; ♧</button></div></article>
+        <article class="product-card"><a href="product.html#fame"><div class="product-image"><img src="assets/fame.png" alt="Nivaah Fame Elixir"></div></a><div class="product-body"><div class="product-name">Fame Elixir</div><div class="product-meta">50ml</div><div class="product-price">₹999</div><button class="add" data-product="Fame Elixir">Add to Cart&nbsp;&nbsp; ♧</button></div></article>
+        <article class="product-card"><a href="product.html#thrill"><div class="product-image"><img src="assets/thrill.png" alt="Nivaah Thrill Elixir"></div></a><div class="product-body"><div class="product-name">Thrill Elixir</div><div class="product-meta">50ml</div><div class="product-price">₹999</div><button class="add" data-product="Thrill Elixir">Add to Cart&nbsp;&nbsp; ♧</button></div></article>
+        <article class="product-card"><a href="product.html#escape"><div class="product-image"><img src="assets/escape.png" alt="Nivaah Escape Elixir"></div></a><div class="product-body"><div class="product-name">Escape Elixir</div><div class="product-meta">50ml</div><div class="product-price">₹999</div><button class="add" data-product="Escape Elixir">Add to Cart&nbsp;&nbsp; ♧</button></div></article>
+        <article class="product-card"><a href="product.html#collector"><div class="product-image"><img src="assets/collector.png" alt="Nivaah Elixir Gift Set"></div></a><div class="product-body"><div class="product-name">Elixir Gift Set</div><div class="product-meta">3 × 50ml</div><div class="product-price">₹2,799</div><button class="add" data-product="Elixir Gift Set">Add to Cart&nbsp;&nbsp; ♧</button></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section why" id="why">
+    <div class="why-grid">
+      <div class="why-intro"><div class="eyebrow">Why Nivaah?</div><h2 class="section-title">More Than Just<br>A Fragrance</h2></div>
+      <div class="why-item"><div class="why-icon">♢</div><strong>Over 30% Oils</strong><p>The highest concentration for unmatched lasting.</p></div>
+      <div class="why-item"><div class="why-icon">⌂</div><strong>Premium Ingredients</strong><p>Sourced from the world's finest regions.</p></div>
+      <div class="why-item"><div class="why-icon">♧</div><strong>Crafted With Care</strong><p>Blended to perfection for every mood.</p></div>
+      <div class="why-item"><div class="why-icon">✦</div><strong>Made For You</strong><p>Because you deserve nothing but the best.</p></div>
+    </div>
+  </section>
+
+  <section class="promo"><a href="product.html#collector"><img src="assets/collector-banner.png" alt="Own the Collector's Edition — ₹500 cashback for a limited time"></a></section>
+
+  <section class="club" id="story"><div class="club-wrap"><div><h3>Join the Elixir Club</h3><p>Get exclusive offers, early access & more.</p></div><form class="subscribe" id="subscribe"><input type="email" required placeholder="Enter your email" aria-label="Email address"><button type="submit">Subscribe</button></form></div></section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand"><a class="brand" href="index.html"><img class="brandmark" src="assets/nivaah-logo.png" alt="Nivaah logo"><span class="brandtext">Nivaah<small>• elixir of youth •</small></span></a><p>Premium perfumes crafted with the finest oils for the bold, the driven & the dreamers.</p><div class="social"><span>◎</span><span>f</span><span>▶</span></div></div>
+    <div><h4>Shop</h4><ul><li><a href="product.html">All Perfumes</a></li><li><a href="product.html#fame">Men</a></li><li><a href="product.html#thrill">Women</a></li><li><a href="product.html#collector">Gift Sets</a></li><li><a href="#bestsellers">Offers</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="#contact">Shipping & Delivery</a></li><li><a href="#contact">Returns & Refunds</a></li><li><a href="#contact">Track Order</a></li><li><a href="#contact">FAQs</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+    <div><h4>About</h4><ul><li><a href="#story">Our Story</a></li><li><a href="#collection">Ingredients</a></li><li><a href="#why">Craftsmanship</a></li><li><a href="#why">Sustainability</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li>☎ +91 98765 43210</li><li>✉ support@nivaahelixir.com</li><li>◷ Mon - Sat, 10AM - 7PM</li></ul></div>
+  </div>
+  <div class="copyright"><span>© 2026 Nivaah Elixir. All Rights Reserved.</span><span class="legal"><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></span></div>
+</footer>
+<div class="toast" id="toast">Added to your selection.</div>
+<script>
+const toast=document.getElementById('toast');
+document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toast.textContent=btn.dataset.product+' added to your selection.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}));
+document.getElementById('subscribe').addEventListener('submit',e=>{e.preventDefault();toast.textContent='Welcome to the Elixir Club.';toast.classList.add('show');e.target.reset();setTimeout(()=>toast.classList.remove('show'),1800)});
+</script>
+</body>
+</html>

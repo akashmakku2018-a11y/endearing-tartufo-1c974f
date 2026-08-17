@@ -1,0 +1,4 @@
+About page image setup:
+- The supplied Kommodo family-image URL is used first.
+- If Kommodo blocks hotlinking or the URL fails, the page automatically falls back to a local project image.
+- No broken-image icon should remain.

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Us — NIVAAH Elixir</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+:root{--bg:#050505;--gold:#d9ad58;--gold2:#f1c86d;--red:#c81e24;--text:#f5f0e7;--muted:#aaa39a;--line:#292722}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}
+.top{height:30px;border-bottom:1px solid #25231f;display:flex;align-items:center;justify-content:center;color:var(--gold2);font-size:9px;letter-spacing:.2em}
+.header{height:76px;border-bottom:1px solid #25231f;display:flex;align-items:center;padding:0 4.2%;gap:35px;position:sticky;top:0;background:#050505;z-index:10}.logo{width:145px;height:58px;object-fit:contain;object-position:left}.nav{display:flex;gap:38px;flex:1;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.nav a:first-child{color:var(--gold2)}.icons{display:flex;gap:18px;font-size:20px}
+.hero{min-height:520px;display:grid;grid-template-columns:47% 53%;border-bottom:1px solid var(--line)}.hero-copy{display:flex;flex-direction:column;justify-content:center;padding:70px 7% 70px 9%;background:radial-gradient(circle at 85% 55%,rgba(130,12,16,.3),transparent 42%)}.eyebrow{font-size:10px;color:var(--red);font-weight:600;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-family:"Cormorant Garamond",serif;font-size:70px;line-height:.95;margin:13px 0 18px}.hero p{font-size:13px;line-height:1.9;color:var(--muted);max-width:490px}.hero-image{min-height:520px;overflow:hidden;background:#111;position:relative}.hero-image img{width:100%;height:100%;object-fit:cover;display:block}.image-note{position:absolute;left:20px;bottom:20px;background:rgba(0,0,0,.65);border:1px solid #7f6229;padding:8px 12px;color:var(--gold2);font-size:8px;letter-spacing:.08em}
+.intro{max-width:1180px;margin:auto;padding:80px 5%;text-align:center}.intro h2,.story h2{font-family:"Cormorant Garamond",serif;font-size:48px;line-height:1;margin:12px 0 20px}.intro p{max-width:760px;margin:auto;color:var(--muted);font-size:12px;line-height:2}
+.story{display:grid;grid-template-columns:1fr 1fr;max-width:1180px;margin:auto;padding:25px 5% 80px;gap:60px;align-items:center}.story-image{height:430px;border:1px solid #2d2a24;overflow:hidden;background:#101010}.story-image img{width:100%;height:100%;object-fit:cover}.story-copy p{font-size:12px;color:var(--muted);line-height:1.9}.goldline{width:60px;height:2px;background:var(--gold);margin:18px 0}
+.values{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#080808;padding:55px 5%}.values h2{text-align:center;font-family:"Cormorant Garamond",serif;font-size:42px;margin:0 0 30px}.valuegrid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2a2823}.value{background:#080808;padding:34px;text-align:center}.value .icon{font-size:27px;color:var(--gold2)}.value h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:14px 0}.value p{font-size:10px;line-height:1.8;color:var(--muted)}
+.quote{max-width:900px;margin:auto;text-align:center;padding:85px 5%}.quote mark{background:none;color:var(--red);font-size:10px;letter-spacing:.18em;text-transform:uppercase}.quote blockquote{font-family:"Cormorant Garamond",serif;font-size:37px;line-height:1.25;margin:16px 0}.quote small{color:#8f8980;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.club{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 5%;display:grid;grid-template-columns:180px 1fr 1.2fr;gap:25px;align-items:center;background:#080808}.club img{width:140px;height:65px;object-fit:contain}.club h3{font-family:"Cormorant Garamond",serif;font-size:25px;margin:0}.club p{font-size:9px;color:var(--muted)}.email{display:flex}.email input{flex:1;background:#111;border:1px solid #37342d;color:#fff;padding:12px}.email button{background:var(--gold2);border:0;padding:0 20px;font-size:9px;font-weight:600}
+.footer{padding:40px 5% 0;border-top:1px solid #24221e}.footgrid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.2fr;gap:25px;padding-bottom:30px}.footgrid h4{font-size:9px;color:var(--gold2);letter-spacing:.12em;text-transform:uppercase}.footgrid p,.footgrid a{font-size:9px;color:#9c968e;line-height:2;display:block}.footlogo{width:135px;height:60px;object-fit:contain;object-position:left}.bottom{border-top:1px solid #211f1c;padding:14px 0;display:flex;justify-content:space-between;color:#706c66;font-size:8px}
+@media(max-width:850px){.nav{gap:14px}.hero{grid-template-columns:1fr}.hero-image{height:470px}.story{grid-template-columns:1fr}.valuegrid{grid-template-columns:1fr}.club{grid-template-columns:1fr}.footgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.header{height:64px;padding:0 15px}.nav{display:none}.hero-copy{padding:55px 20px}.hero h1{font-size:53px}.hero-image{height:380px}.intro{padding:55px 20px}.intro h2,.story h2{font-size:38px}.story{padding:15px 20px 55px;gap:30px}.story-image{height:350px}.values{padding:45px 20px}.quote{padding:60px 20px}.quote blockquote{font-size:30px}.club{padding:22px 20px}.footer{padding:30px 20px 0}.footgrid{grid-template-columns:1fr 1fr}.bottom{gap:10px;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="top">▣ &nbsp; FREE SHIPPING ON ORDERS OVER ₹999</div>
+<header class="header">
+<a href="index.html"><img class="logo" src="assets/nivaah-logo.png" alt="Nivaah"></a>
+<nav class="nav"><a href="index.html">Home</a><a href="product.html">Collection</a><a href="about.html">About Us</a><a href="#">Our Story</a><a href="#">Contact</a></nav>
+<div class="icons">⌕ &nbsp; ♙ &nbsp; 🛒</div>
+</header>
+
+<section class="hero">
+<div class="hero-copy"><div class="eyebrow">ABOUT NIVAAH ELIXIR</div><h1>More Than<br>A Fragrance.</h1><p>Nivaah Elixir is created for the bold, the driven and the dreamers — a fragrance house built around memories, confidence and the moments that stay with you.</p></div>
+<div class="hero-image"><img src="https://kommodo.ai/i/iXtyJyzL2dTbg25mLoMe" alt="Nivaah family story image"><div class="image-note">THE FAMILY BEHIND THE JOURNEY</div></div>
+</section>
+
+<section class="intro"><div class="eyebrow">OUR PHILOSOPHY</div><h2>A Scent Can Become<br>A Memory</h2><p>We believe fragrance is personal. It becomes part of your presence, your celebrations and the people you love. Nivaah was imagined to make premium fragrance feel intimate, expressive and unforgettable.</p></section>
+
+<section class="story">
+<div class="story-image"><img src="https://kommodo.ai/i/iXtyJyzL2dTbg25mLoMe" alt="Nivaah family"></div>
+<div class="story-copy"><div class="eyebrow">OUR STORY</div><h2>Made With Meaning.</h2><div class="goldline"></div><p>Nivaah Elixir began with a simple idea: create fragrances that feel luxurious without losing their human touch. Every blend is designed around a mood, a memory and a moment.</p><p>From carefully selected perfume oils to the final bottle, we focus on detail, character and a lasting impression.</p></div>
+</section>
+
+<section class="values"><h2>What We Stand For</h2><div class="valuegrid">
+<div class="value"><div class="icon">✦</div><h3>Premium Craft</h3><p>Thoughtful compositions and high-quality fragrance oils, crafted with care.</p></div>
+<div class="value"><div class="icon">◈</div><h3>Made For Moments</h3><p>Scents created to match moods, memories, celebrations and everyday confidence.</p></div>
+<div class="value"><div class="icon">♢</div><h3>Authentic Nivaah</h3><p>A distinct identity built around elegance, warmth and modern Indian expression.</p></div>
+</div></section>
+
+<section class="quote"><mark>The Nivaah Belief</mark><blockquote>“Wear the moment. Keep the memory.”</blockquote><small>Nivaah Elixir</small></section>
+
+<section class="club"><img src="assets/nivaah-logo.png" alt="Nivaah"><div><h3>Join the Elixir Club</h3><p>Get exclusive offers, early access & more.</p></div><form class="email" onsubmit="event.preventDefault();alert('Welcome to the Elixir Club')"><input type="email" required placeholder="Enter your email"><button>SUBSCRIBE</button></form></section>
+
+<footer class="footer"><div class="footgrid">
+<div><img class="footlogo" src="assets/nivaah-logo.png" alt="Nivaah"><p>Premium perfumes crafted with the finest oils for the bold, the driven & the dreamers.</p></div>
+<div><h4>Shop</h4><a href="index.html">All Perfumes</a><a>Men</a><a>Women</a><a>Gift Sets</a><a>Offers</a></div>
+<div><h4>Help</h4><a>Shipping & Delivery</a><a>Returns & Refunds</a><a>Track Order</a><a>FAQs</a><a>Contact Us</a></div>
+<div><h4>About</h4><a href="about.html">Our Story</a><a>Ingredients</a><a>Craftsmanship</a><a>Sustainability</a></div>
+<div><h4>Contact</h4><p>+91 98765 43210</p><p>support@nivaah.elixir</p><p>Mon - Sat, 10AM - 7PM</p></div>
+</div><div class="bottom"><span>© 2024 Nivaah Elixir. All Rights Reserved.</span><span>Privacy Policy &nbsp; | &nbsp; Terms & Conditions</span></div></footer>
+</body>
+</html>

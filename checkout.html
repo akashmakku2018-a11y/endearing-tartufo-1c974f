@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NIVAAH ELIXIR — Checkout</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+:root{--bg:#070707;--panel:#0d0d0c;--ink:#f5f1e9;--muted:#aaa49b;--gold:#d4ad63;--line:#292723}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5vw;border-bottom:1px solid var(--line)}.logo{font:30px "Cormorant Garamond";letter-spacing:.15em}.back{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#aaa}
+.wrap{max-width:1050px;margin:auto;padding:65px 5vw}.head{text-align:center;margin-bottom:45px}.eyebrow{font-size:10px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase}.head h1{font:600 60px "Cormorant Garamond";margin:10px}.head p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 360px;gap:50px}.panel{background:var(--panel);border:1px solid var(--line);padding:30px}.panel h2{font:500 34px "Cormorant Garamond";margin:0 0 25px}.field{margin-bottom:17px}.field label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#9b958b;margin-bottom:8px}.field input,.field textarea,.field select{width:100%;background:#090909;border:1px solid #35322c;color:#eee;padding:14px;font:13px Inter;outline:none}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold)}
+.summary .line{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #28251f;font-size:13px;color:#aaa}.summary .total{font-size:18px;color:#fff}.btn{width:100%;border:0;background:var(--gold);color:#080808;padding:17px;margin-top:24px;font:600 10px Inter;letter-spacing:.24em;text-transform:uppercase;cursor:pointer}.whatsapp{background:#161610;color:#e5d5ae;border:1px solid #4b432f}.notice{display:none;margin-top:18px;padding:15px;border:1px solid #4b432f;color:#d8c99f;font-size:12px;line-height:1.7}
+.footer{text-align:center;color:#777;border-top:1px solid var(--line);padding:40px;font-size:9px;letter-spacing:.18em}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.head h1{font-size:48px}.wrap{padding:50px 18px}}
+</style>
+</head>
+<body>
+<nav class="nav"><a class="logo" href="index.html">NIVAAH</a><a class="back" href="cart.html">← Selection</a></nav>
+<main class="wrap">
+<header class="head"><div class="eyebrow">Private Order</div><h1>Complete Your Selection</h1><p>Your details are used only to prepare your fragrance order.</p></header>
+<div class="grid">
+<section class="panel">
+<h2>Customer Details</h2>
+<form id="orderForm">
+<div class="field"><label>Full Name</label><input id="name" required placeholder="Your name"></div>
+<div class="field"><label>Mobile / WhatsApp</label><input id="phone" required type="tel" placeholder="+966 ..."></div>
+<div class="field"><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div>
+<div class="field"><label>Country</label><select id="country"><option selected>India</option></select></div><div class="field"><label>Delivery Address</label><textarea id="address" required placeholder="Building, street, city, country"></textarea></div>
+<div class="field"><label>Preferred Payment</label><select id="payment"><option>Cash on Delivery</option><option>Bank Transfer</option><option>Online Payment — coming soon</option></select></div>
+<button class="btn" type="submit">Create Order Request</button>
+<button class="btn whatsapp" type="button" onclick="sendWhatsApp()">Send via WhatsApp</button>
+<div id="notice" class="notice"></div>
+</form>
+</section>
+<aside class="panel summary">
+<div class="eyebrow">Order Summary</div><h2>NIVAAH Collection</h2>
+<div class="line"><span>Fame Elixir</span><span>₹999</span></div>
+<div class="line"><span>Thrill Elixir</span><span>₹999</span></div>
+<div class="line"><span>Escape Elixir</span><span>₹999</span></div>
+<div class="line"><span>Delivery</span><span>Free</span></div>
+<div class="line total"><span>Total</span><span>₹2,997</span></div>
+<p style="color:#777;font-size:10px;line-height:1.7">Online card payment can be connected later through your preferred payment gateway.</p>
+</aside>
+</div></main>
+<footer class="footer">NIVAAH ELIXIR · THE ART OF FRAGRANCE</footer>
+<script>
+function data(){
+ return {name:document.getElementById('name').value,phone:document.getElementById('phone').value,email:document.getElementById('email').value,address:document.getElementById('address').value,payment:document.getElementById('payment').value};
+}
+document.getElementById('orderForm').addEventListener('submit',function(e){
+ e.preventDefault(); const d=data(); const subject=encodeURIComponent('NIVAAH ELIXIR Order - '+d.name);
+ const body=encodeURIComponent('NIVAAH ELIXIR ORDER\\n\\nCustomer: '+d.name+'\\nWhatsApp: '+d.phone+'\\nEmail: '+d.email+'\\nAddress: '+d.address+'\\nPayment: '+d.payment+'\\n\\nFame Elixir — ₹999\\nThrill Elixir — ₹999\\nEscape Elixir — ₹999\\nDelivery — Free\\nTotal — ₹2,997');
+ window.location.href='mailto:contact@nivaelixir.com?subject='+subject+'&body='+body;
+});
+function sendWhatsApp(){
+ const d=data(); if(!d.name||!d.phone||!d.address){alert('Please complete your name, WhatsApp number and delivery address.');return;}
+ const msg='NIVAAH ELIXIR ORDER%0A%0AName: '+encodeURIComponent(d.name)+'%0AWhatsApp: '+encodeURIComponent(d.phone)+'%0AEmail: '+encodeURIComponent(d.email)+'%0AAddress: '+encodeURIComponent(d.address)+'%0APayment: '+encodeURIComponent(d.payment)+'%0A%0AFame Elixir — ₹999%0AThrill Elixir — ₹999%0AEscape Elixir — ₹999%0ATotal — ₹2,997';
+ // Replace 966500000000 with the brand's real WhatsApp number before launch.
+ window.open('https://wa.me/966500000000?text='+msg,'_blank');
+}
+</script>
+</body>
+</html>

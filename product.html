@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thrill Elixir — NIVAAH</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+:root{--bg:#050505;--panel:#0b0b0b;--gold:#d8aa4d;--gold2:#f0c76c;--red:#c61e20;--text:#f4efe5;--muted:#aaa39a;--line:#292722}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+a{text-decoration:none;color:inherit}.topbar{height:30px;border-bottom:1px solid #24221e;text-align:center;font-size:10px;letter-spacing:.2em;color:var(--gold2);display:flex;align-items:center;justify-content:center}
+.nav{height:76px;border-bottom:1px solid #24221e;display:flex;align-items:center;padding:0 4%;gap:40px;background:#070707}
+.logo{width:150px;height:58px;object-fit:contain;object-position:left center;filter:brightness(1.05)}
+.links{display:flex;gap:38px;align-items:center;flex:1;justify-content:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase}.links a:nth-child(2){color:var(--gold2);border-bottom:2px solid var(--gold2);padding:28px 0 25px}
+.icons{display:flex;gap:20px;font-size:20px;color:#eee}.icons span{position:relative}.badge{position:absolute;right:-8px;top:-8px;background:#c51e28;color:#fff;border-radius:50%;font-size:8px;width:15px;height:15px;display:grid;place-items:center}
+.crumb{max-width:1320px;margin:auto;padding:20px 4%;font-size:11px;color:#b4aea5}.crumb b{color:#eee;font-weight:400}.main{max-width:1320px;margin:auto;padding:0 4% 50px}
+.hero{display:grid;grid-template-columns:56% 44%;gap:42px;align-items:start}
+.gallery{display:grid;grid-template-columns:82px 1fr;gap:20px}.thumbs{display:flex;flex-direction:column;gap:12px}.thumb{width:82px;height:92px;border:1px solid #37332d;border-radius:5px;overflow:hidden;background:#0b0b0b;padding:0}.thumb.active{border-color:var(--gold2);box-shadow:0 0 0 1px #6d5525}.thumb img{width:100%;height:100%;object-fit:cover}.mainimg{border:1px solid #1f1e1b;background:#0a0a0a;overflow:hidden}.mainimg img{width:100%;height:620px;display:block;object-fit:cover}
+.info{padding:8px 4% 0 0}.label{font-size:11px;letter-spacing:.18em;color:#d51d27;text-transform:uppercase;font-weight:600}.info h1{font-family:"Cormorant Garamond",serif;font-size:55px;line-height:1;margin:12px 0 8px}.sub{color:#aaa39a;font-size:15px;margin-bottom:16px}.rating{display:flex;gap:8px;align-items:center;color:#f0bb57;font-size:15px;margin-bottom:18px}.rating small{color:#aaa;font-size:12px}.price{display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--line);padding-bottom:20px}.now{font-size:28px;color:var(--gold2);font-weight:600}.old{text-decoration:line-through;color:#8f8a82}.off{border:1px solid #8a6a2d;border-radius:12px;padding:3px 10px;font-size:10px;color:#d8aa4d}.stock{margin-left:auto;color:#7bd27b;font-size:12px}
+.section-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:25px 0 12px}.sizes{display:flex;gap:12px}.size{min-width:105px;padding:13px;border:1px solid #3a3834;border-radius:4px;background:transparent;color:#eee}.size.active{border-color:var(--gold2);box-shadow:inset 0 0 0 1px #8c6826}.qty{display:flex;width:150px;border:1px solid #36342f}.qty button,.qty span{height:40px;flex:1;background:transparent;border:0;color:#eee;text-align:center;display:grid;place-items:center}.qty button{font-size:18px;border-right:1px solid #2c2a26}.qty button:last-child{border-left:1px solid #2c2a26;border-right:0}.actions{margin-top:14px}.add,.buy{width:100%;height:52px;border-radius:4px;font-weight:600;letter-spacing:.08em}.add{background:#e9b853;color:#111;border:1px solid #e9b853}.buy{margin-top:12px;background:transparent;color:var(--gold2);border:1px solid #8a6a2d}.trust{display:flex;gap:18px;flex-wrap:wrap;color:#b8b0a6;font-size:11px;margin-top:20px}.trust span:before{content:"✓";color:var(--gold2);margin-right:7px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:20px}.feature{padding:22px 18px;display:flex;gap:14px;border-right:1px solid var(--line)}.feature:last-child{border-right:0}.feature .ico{font-size:22px;color:var(--gold2)}.feature strong{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase}.feature small{display:block;color:#8f8a82;margin-top:6px;font-size:10px}
+.essence{margin-top:30px;display:grid;grid-template-columns:38% 62%;min-height:300px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,#070707 0%,#080808 48%,#060606 100%)}
+.essence-copy{padding:48px 40px 48px 0;background:radial-gradient(circle at 80% 60%,rgba(135,15,10,.28),transparent 40%)}.eyebrow{font-size:10px;letter-spacing:.18em;color:#d52225;text-transform:uppercase}.essence h2{font-family:"Cormorant Garamond",serif;font-size:40px;line-height:1.05;margin:12px 0 20px}.essence p{font-size:12px;line-height:1.8;color:#aaa39a;max-width:390px}.outline{display:inline-block;border:1px solid #8a6a2d;color:var(--gold2);padding:13px 22px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:12px}
+.detailbox{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:28px 0}.box{border:1px solid #34312b;background:#0a0a0a;padding:22px}.box h3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ddd;margin:0 0 18px}.notesrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-bottom:1px solid #27251f;padding-bottom:15px;margin-bottom:15px}.notesrow:last-child{border-bottom:0;margin-bottom:0}.noteitem{text-align:center;color:#a9a198;font-size:10px}.noteitem .circle{width:42px;height:42px;margin:0 auto 7px;border-radius:50%;background:#171612;display:grid;place-items:center;color:var(--gold2);font-size:19px}.detailtext{color:#aaa39a;font-size:12px;line-height:1.8}.checks{list-style:none;padding:0;margin:18px 0 0}.checks li{padding:9px 0;border-bottom:1px solid #24231f;color:#aaa39a;font-size:11px}.checks li:before{content:"◉";color:var(--gold2);margin-right:10px}
+.related{padding:30px 0}.related-head{display:flex;justify-content:space-between;align-items:center}.related h2{font-family:"Cormorant Garamond",serif;font-size:28px;margin:0 0 16px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{border:1px solid #2b2925;background:#080808;overflow:hidden}.card img{width:100%;height:230px;object-fit:cover;display:block}.cardbody{padding:13px}.card h3{font-family:"Cormorant Garamond",serif;font-size:19px;margin:0 0 3px}.card p{margin:0;color:#aaa39a;font-size:10px}.stars{color:#e4ad4d;font-size:11px;margin:8px 0}.cardfoot{display:flex;justify-content:space-between;align-items:center}.cardprice{font-size:16px}.cartbtn{border:1px solid #8a6a2d;color:var(--gold2);background:transparent;width:36px;height:36px}
+.club{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;display:grid;grid-template-columns:230px 1fr 1.2fr;gap:25px;align-items:center}.club img{width:150px;height:75px;object-fit:contain}.club h3{font-family:"Cormorant Garamond",serif;font-size:24px;margin:0}.club p{font-size:10px;color:#aaa39a}.email{display:flex}.email input{flex:1;background:#111;border:1px solid #34312b;padding:13px;color:#fff}.email button{background:var(--gold2);border:0;padding:0 22px;font-size:10px;font-weight:600}
+.footer{border-top:1px solid #25231f;padding:42px 4% 0}.footgrid{max-width:1320px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:25px;padding-bottom:35px}.footgrid h4{font-size:10px;color:var(--gold2);letter-spacing:.08em;text-transform:uppercase}.footgrid p,.footgrid a{display:block;color:#9c968e;font-size:10px;line-height:2}.footlogo{width:130px;height:70px;object-fit:contain;object-position:left}.bottom{border-top:1px solid #1f1e1b;padding:16px 0;display:flex;justify-content:space-between;color:#716d66;font-size:9px}
+@media(max-width:900px){.links{gap:15px}.hero{grid-template-columns:1fr}.info{padding-right:0}.mainimg img{height:520px}.features{grid-template-columns:repeat(2,1fr)}.essence{grid-template-columns:1fr}.detailbox{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.club{grid-template-columns:1fr}.footgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.topbar{font-size:8px}.nav{height:62px;padding:0 14px}.logo{width:110px}.links{display:none}.crumb{padding:14px}.main{padding:0 14px 30px}.gallery{grid-template-columns:58px 1fr;gap:10px}.thumb{width:58px;height:70px}.mainimg img{height:430px}.info h1{font-size:42px}.sizes{flex-wrap:wrap}.features{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.card img{height:260px}.footgrid{grid-template-columns:1fr 1fr}.bottom{font-size:8px;gap:10px}.club img{width:120px}}
+</style>
+</head>
+<body>
+<div class="topbar">▣ &nbsp; FREE SHIPPING ON ORDERS OVER ₹999</div>
+<header class="nav">
+  <a href="index.html"><img class="logo" src="assets/nivaah-logo.png" alt="Nivaah"></a>
+  <nav class="links"><a href="index.html">HOME</a><a href="product.html">COLLECTION</a><a href="about.html">About Us</a><a href="#">OUR STORY</a><a href="#">CONTACT</a></nav>
+  <div class="icons"><span>⌕</span><span>♙</span><span>🛒<i class="badge">2</i></span></div>
+</header>
+
+<div class="crumb">Home &nbsp;›&nbsp; Collection &nbsp;›&nbsp; <b>Thrill Elixir</b></div>
+<main class="main">
+<section class="hero">
+  <div class="gallery">
+    <div class="thumbs">
+      <button class="thumb active"><img src="assets/product-6.jpg" alt=""></button>
+      <button class="thumb"><img src="assets/product-4.png" alt=""></button>
+      <button class="thumb"><img src="assets/thrill.png" alt=""></button>
+      <button class="thumb"><img src="assets/product-2.png" alt=""></button>
+    </div>
+    <div class="mainimg"><img id="mainProduct" src="assets/product-6.jpg" alt="Nivaah Thrill Elixir"></div>
+  </div>
+  <div class="info">
+    <div class="label">BEST SELLER</div>
+    <h1>Thrill Elixir</h1>
+    <div class="sub">Spiced Leather – Built for the Fikn Rush</div>
+    <div class="rating">★★★★★ <small>(128 reviews)</small></div>
+    <div class="price"><span class="now">₹999</span><span class="old">₹1,499</span><span class="off">33% OFF</span><span class="stock">✓ In Stock</span></div>
+    <div class="section-title">Select Size</div>
+    <div class="sizes"><button class="size">30ml</button><button class="size active">50ml</button><button class="size">100ml</button></div>
+    <div class="section-title">Quantity</div>
+    <div class="qty"><button onclick="changeQty(-1)">−</button><span id="qty">1</span><button onclick="changeQty(1)">+</button></div>
+    <div class="actions"><button class="add" onclick="addToCart()">ADD TO CART &nbsp; 🛒</button><button class="buy">BUY NOW</button></div>
+    <div class="trust"><span>Secure Payments</span><span>Easy Returns</span><span>100% Authentic</span></div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature"><div class="ico">♢</div><div><strong>Premium Ingredients</strong><small>Crafted with the finest oils</small></div></div>
+  <div class="feature"><div class="ico">◷</div><div><strong>Long Lasting</strong><small>Over 30% fragrance oils</small></div></div>
+  <div class="feature"><div class="ico">✥</div><div><strong>Made For You</strong><small>For every mood & moment</small></div></div>
+  <div class="feature"><div class="ico">♧</div><div><strong>Safe & Secure</strong><small>Secure payments</small></div></div>
+</section>
+
+<section class="essence">
+  <div class="essence-copy">
+    <div class="eyebrow">OUR COLLECTION</div>
+    <h2>The Essence of<br>Bold Elegance</h2>
+    <p>Nivaah Elixir – Thrill is a statement of power, confidence and intensity. A perfect blend of spices, leather and rich woody notes, crafted for those who chase excitement and live life on their own terms.</p>
+    <a class="outline" href="index.html#collection">VIEW ALL COLLECTION &nbsp; →</a>
+  </div>
+  <div class="detailbox">
+    <div class="box">
+      <h3>Fragrance Notes</h3>
+      <div class="notesrow"><div class="noteitem"><div class="circle">🍎</div>Apple</div><div class="noteitem"><div class="circle">🌿</div>Mugwort</div><div class="noteitem"><div class="circle">◖</div>Leather</div></div>
+      <div class="notesrow"><div class="noteitem"><div class="circle">⌁</div>Cinnamon</div><div class="noteitem"><div class="circle">✤</div>Cardamom</div><div class="noteitem"><div class="circle">✣</div>Clove</div></div>
+      <div class="notesrow"><div class="noteitem"><div class="circle">✾</div>Vanilla</div><div class="noteitem"><div class="circle">◆</div>Amber</div><div class="noteitem"><div class="circle">●</div>Musk</div></div>
+    </div>
+    <div class="box">
+      <h3>Description</h3>
+      <div class="detailtext">Thrill Elixir is crafted for those who chase excitement and live life on their own terms.<br><br>A bold blend of spicy warmth and leather, this fragrance leaves a powerful impression wherever you go.</div>
+      <ul class="checks"><li>Over 30% Perfume Oils – Highest Concentration</li><li>Long Lasting – 8+ Hours</li><li>Premium Ingredients Sourced Globally</li><li>Crafted with Care in India</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="related-head"><h2>YOU MAY ALSO LIKE</h2><div>‹ &nbsp;&nbsp; ›</div></div>
+  <div class="cards">
+    <article class="card"><img src="assets/fame.png" alt="Fame Elixir"><div class="cardbody"><h3>Fame Elixir</h3><p>Oud Supreme</p><div class="stars">★★★★★ (96)</div><div class="cardfoot"><span class="cardprice">₹999</span><button class="cartbtn">🛒</button></div></div></article>
+    <article class="card"><img src="assets/escape.png" alt="Escape Elixir"><div class="cardbody"><h3>Escape Elixir</h3><p>Forest Breeze</p><div class="stars">★★★★★ (112)</div><div class="cardfoot"><span class="cardprice">₹999</span><button class="cartbtn">🛒</button></div></div></article>
+    <article class="card"><img src="assets/thrill.png" alt="Thrill Elixir"><div class="cardbody"><h3>Thrill Elixir</h3><p>Spiced Leather</p><div class="stars">★★★★★ (96)</div><div class="cardfoot"><span class="cardprice">₹999</span><button class="cartbtn">🛒</button></div></div></article>
+    <article class="card"><img src="assets/collector-banner.png" alt="Collector's Edition Set"><div class="cardbody"><h3>Collector's Edition Set</h3><p>3 × 20ml</p><div class="stars">★★★★★ (78)</div><div class="cardfoot"><span class="cardprice">₹1,499</span><button class="cartbtn">🛒</button></div></div></article>
+  </div>
+</section>
+
+<section class="club">
+  <img src="assets/nivaah-logo.png" alt="Nivaah">
+  <div><h3>Join the Elixir Club</h3><p>Get exclusive offers, early access & more.</p></div>
+  <form class="email"><input type="email" placeholder="Enter your email"><button>SUBSCRIBE</button></form>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footgrid">
+    <div><img class="footlogo" src="assets/nivaah-logo.png" alt="Nivaah"><p>Premium perfumes crafted with the finest oils for the bold, the driven & the dreamers.</p><p>◎ &nbsp; f &nbsp; ▶</p></div>
+    <div><h4>Shop</h4><a>All Perfumes</a><a>Men</a><a>Women</a><a>Gift Sets</a><a>Offers</a></div>
+    <div><h4>Help</h4><a>Shipping & Delivery</a><a>Returns & Refunds</a><a>Track Order</a><a>FAQs</a><a>Contact Us</a></div>
+    <div><h4>About</h4><a>Our Story</a><a>Ingredients</a><a>Craftsmanship</a><a>Sustainability</a></div>
+    <div><h4>Contact</h4><p>⌕ +91 98765 43210</p><p>✉ support@nivaah.elixir</p><p>◷ Mon - Sat, 10AM - 7PM</p></div>
+  </div>
+  <div class="bottom"><span>© 2024 Nivaah Elixir. All Rights Reserved.</span><span>Privacy Policy &nbsp; | &nbsp; Terms & Conditions</span></div>
+</footer>
+
+<script>
+const mainImg=document.getElementById('mainProduct');
+document.querySelectorAll('.thumb').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.thumb').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  mainImg.src=btn.querySelector('img').src;
+}));
+function changeQty(n){let q=document.getElementById('qty');let v=Math.max(1,Number(q.textContent)+n);q.textContent=v;}
+function addToCart(){location.href='cart.html';}
+</script>
+</body>
+</html>
